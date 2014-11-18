@@ -1,0 +1,9 @@
+In ~/.profile add:
+  if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+  export TERM='xterm-256color'
+  else
+  export TERM='xterm-color'
+  fi
+  
+To enable 256 colors in vim, put this your .vimrc before setting the colorscheme:
+  set t_Co=256

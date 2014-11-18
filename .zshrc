@@ -46,6 +46,9 @@ ZSH_THEME="minimal"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+export TERM=xterm-256color
+
 plugins=(git python tmux web-search)
 
 source $ZSH/oh-my-zsh.sh

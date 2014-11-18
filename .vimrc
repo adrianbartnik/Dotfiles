@@ -30,7 +30,7 @@ set showcmd " Show partial commands in the last line of the screen
 set nobackup
 set noswapfile
 set nowb
-set wildignore=*.swp,*.bak,*.pcy,*.class,*.png,*.jpg,*.gif
+set wildignore=*.swp,*.bak,*.pcy,*.class,*.png,*.jpg,*.gif,*.so,*.zip,*.exe
 
 set splitbelow
 set splitright
@@ -97,7 +97,6 @@ imap <leader>[ []<ESC>i
 vnoremap < <gv
 vnoremap > >gv
 
-nnoremap <silent> <C-l> :nohl<CR><C-l> " Redraws the screen and disables highlight search
 nnoremap <leader>rm :call delete(expand('%')) \| bdelete!<CR> " Deletes the current file
 
 
@@ -105,31 +104,45 @@ nnoremap <leader>rm :call delete(expand('%')) \| bdelete!<CR> " Deletes the curr
 
 " Pathogen
 execute pathogen#infect()
-
+ 
 " Colortheme
+" set term=xterm-256color
+set t_ut=
+set t_Co=256
 let base16colorspace=256
 set background=dark
 colorscheme base16-ocean
-" colorscheme luna-term
 " colorscheme Tomorrow-Night
+autocmd VimEnter * redraw!
 
 " Airline 
 let g:airline_powerline_fonts = 1
-let g:airline_section_b = '%{getcwd()}'
-let g:airline_section_c = '%t'
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-" let g:airline_section_y = '%{strftime("%H:%M %a%e.%m.%Y")}' " Show Time
+let g:airline_detect_modified=1
+"let g:airline_section_b = '%{getcwd()}'
+"let g:airline_section_c = '%t'
+"let g:airline_section_x = ''
+"let g:airline_section_y = ''
+"let g:airline_section_z = ''
+" let g:airline_section_x = '%{strftime("%H:%M")}' " Show Time
+" let g:airline_section_x = '%{strftime("%H:%M %a %e.%m.%Y")}' " Show Time
 let g:airline_section_warning = ''
 let g:bufferline_echo = 0
 " autocmd VimEnter * AirlineTheme luna-term
-" autocmd VimEnter * AirlineTheme base16
+
+let g:airline#extensions#default#layout = [
+     \ [ 'a', 'b', 'c' ],
+     \ [ 'y', 'z', 'warning' ]
+     \ ]
+
+let g:airline_mode_map = { '__' : '-', 'n' : 'N', 'i' : 'I', 'R' : 'R', 'c' : 'C', 'v' : 'V', 'V' : 'V', 's' : 'S', 'S' : 'S', }
+
+let g:airline#extensions#tmuxline#enabled = 1
 
 let g:tmuxline_preset = {
   \'a' : '#S',
   \'win' : '#I #W',
   \'cwin' : '#I #W',
-  \'y' : '%H:%M %a%e.%m.%Y',
+  \'y' : '%H:%M %a %e.%m.%Y',
   \'z' : '#h'}
 "\'y' : '%{strftime("%H:%M %a%e.%m.%Y")}',
 
