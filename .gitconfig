@@ -1,0 +1,19 @@
+[user]
+    name = Adrian Bartnik
+    email = Adrian.Bartnik@web.de
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+
+[web]
+    browser = google-chrome
+
+[color]
+    ui = auto
+
+[diff]
+    tool = vimdiff
+
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
