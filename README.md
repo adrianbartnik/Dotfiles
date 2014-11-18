@@ -7,3 +7,6 @@ A Backup of my Dotfiles
   - Bashrc
   - Oh-my-zsh - Aliases
   - ZSH
+  - gitconfig
+  - gitignore
+  - profile
