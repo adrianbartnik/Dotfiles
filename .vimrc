@@ -1,6 +1,7 @@
 set nocompatible
 
 filetype indent plugin on " Intelligent auto-indenting by determining Type of file based on name and content
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disable auto-continuing a comment
 syntax on
 
 
@@ -99,35 +100,36 @@ vnoremap > >gv
 
 nnoremap <leader>rm :call delete(expand('%')) \| bdelete!<CR> " Deletes the current file
 
+noremap J }
+noremap K {
 
 " ### ### ### ### ### PLUGINS ### ### ### ### ###
 
-" Pathogen
+" ----- Pathogen
 execute pathogen#infect()
  
-" Colortheme
+" ----- Colortheme
 " set term=xterm-256color
 set t_ut=
 set t_Co=256
 let base16colorspace=256
 set background=dark
-colorscheme base16-ocean
-" colorscheme Tomorrow-Night
+colorscheme base16-ocean " or Tomorrow-Night
 autocmd VimEnter * redraw!
 
-" Airline 
+" ----- Airline 
 let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
-"let g:airline_section_b = '%{getcwd()}'
-"let g:airline_section_c = '%t'
-"let g:airline_section_x = ''
-"let g:airline_section_y = ''
-"let g:airline_section_z = ''
-" let g:airline_section_x = '%{strftime("%H:%M")}' " Show Time
-" let g:airline_section_x = '%{strftime("%H:%M %a %e.%m.%Y")}' " Show Time
 let g:airline_section_warning = ''
 let g:bufferline_echo = 0
-" autocmd VimEnter * AirlineTheme luna-term
+" let g:airline_section_b = '%{getcwd()}'
+" let g:airline_section_c = '%t'
+" let g:airline_section_x = '%{strftime("%H:%M %a %e.%m.%Y")}' " Show Time
+
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.linenr = '' " Change Linenumber symbol
 
 let g:airline#extensions#default#layout = [
      \ [ 'a', 'b', 'c' ],
@@ -144,15 +146,19 @@ let g:tmuxline_preset = {
   \'cwin' : '#I #W',
   \'y' : '%H:%M %a %e.%m.%Y',
   \'z' : '#h'}
-"\'y' : '%{strftime("%H:%M %a%e.%m.%Y")}',
 
-" NERDTree
+" ----- NERDTree
 " autocmd vimenter * if !argc() | NERDTree | endif " Open NERDTree if no other file is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if NERDTree is last open windows
 autocmd BufEnter * lcd %:p:h " Open NERDTree in current directory path
 
 map <C-b> :NERDTreeToggle<CR> " Map Ctrl+b to toogle NERDTree
 
-" Todo
-" Change ruler format - Display on the most right side
-" EmmetVim
+" ----- EmmetVim
+" Ctrl-Y,
+
+" ----- Commentary 
+" gc
+
+" ----- vim-multiple-cursors
+" Ctrl-n
