@@ -35,3 +35,4 @@ alias afind='ack-grep -il'
 
 # OWN ALIASES
 alias inbox="vim /home/adrian/Dropbox/Apps/Notz/Inbox.txt"
+alias dp="cd /home/adrian/Dropbox/Apps/Notz/"

@@ -23,6 +23,7 @@ set hlsearch
 " set incsearch " Incremental search during input
 set nomodeline
 set wildmenu " Better command-line completion
+set wildmode=longest,list,full
 
 set laststatus=2
 set noshowmode " Dont show commandline
@@ -65,10 +66,12 @@ set linebreak " Wrap lines at convenient points
 
 set matchpairs+=<:>
 
+:let g:html_indent_inctags = "html,body,head,tbody"  " Indent this tags
 
 " ### ### ### ### ### MAPPINGS  ### ### ### ### ###
 
 let mapleader = ","
+let maplocalleader = "0"
 
 map Y y$ " Change behaviour of Y. Yank to the end of the current line
 
@@ -102,6 +105,14 @@ nnoremap <leader>rm :call delete(expand('%')) \| bdelete!<CR> " Deletes the curr
 
 noremap J }
 noremap K {
+
+" Map x to tidy HTML
+" :vmap ,x :!tidy -q -i --show-errors 0<CR>
+:vmap ,x :!tidy -q -i --show-warnings no --doctype omit --show-body-only yes-ashtml<CR>
+
+" Move up one line even if the line is non-breaking lines spanning multiple visual lines
+nnoremap j gj
+nnoremap k gk
 
 " ### ### ### ### ### PLUGINS ### ### ### ### ###
 
@@ -162,3 +173,11 @@ map <C-b> :NERDTreeToggle<CR> " Map Ctrl+b to toogle NERDTree
 
 " ----- vim-multiple-cursors
 " Ctrl-n
+
+" Surround.vim
+" cs"' to Change surrounding inside a text object from " to '
+" cst" changes any tag to "
+" ds" deletes surrounding "
+" ysiw] adds a surrounding to a textobject
+" yss to wrap whole line with }}
+" in visual line mode S( to wrap all lines

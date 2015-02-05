@@ -32,12 +32,12 @@ ZSH_THEME="minimal"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -48,14 +48,19 @@ ZSH_THEME="minimal"
 # Add wisely, as too many plugins slow down shell startup.
 
 export TERM=xterm-256color
+export EDITOR='vim'
 
-plugins=(git python tmux web-search)
+plugins=(git python tmux web-search tmuxinator virtualenv virtualenvwrapper)
 
+source ~/.config/tmuxinator/tmuxinator.zsh
 source $ZSH/oh-my-zsh.sh
+
+source /usr/local/bin/virtualenvwrapper.sh
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/adrian/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
