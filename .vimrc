@@ -68,6 +68,9 @@ set matchpairs+=<:>
 
 :let g:html_indent_inctags = "html,body,head,tbody"  " Indent this tags
 
+" Smaller indents on css and html files
+autocmd! Syntax css,html,htmldjango,js setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " ### ### ### ### ### MAPPINGS  ### ### ### ### ###
 
 let mapleader = ","
@@ -86,6 +89,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Move between open buffers easier
+noremap <C-U> :bp<CR>
+noremap <C-I> :bn<CR>
+noremap <Leader>d :bd<CR>:bp<CR>
 
 " Swap Lines with arrow keys
 no <down> ddp 
@@ -141,6 +149,8 @@ let g:bufferline_echo = 0
 "   let g:airline_symbols = {}
 " endif
 " let g:airline_symbols.linenr = '' " Change Linenumber symbol
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline#extensions#default#layout = [
      \ [ 'a', 'b', 'c' ],
