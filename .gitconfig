@@ -19,3 +19,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   s = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[credential]
+	helper = cache --timeout=7200
+[pull]
+	rebase = true
