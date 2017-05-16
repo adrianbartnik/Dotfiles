@@ -1,17 +1,15 @@
 #!/bin/bash
 ############################
-# .make.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
+#
+# Taken from: http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
 ############################
 
-########## Variables
+# Variables
 
-dir=~/Documents/Projects/Dotfiles                    # dotfiles directory
+dir=~/Documents/Projects/Dotfiles                             # dotfiles directory
 olddir=~/Documents/Projects/Dotfiles/dotfiles_old             # old dotfiles backup directory
-# files="bashrc vimrc vim zshrc oh-my-zsh tmux.conf"    # list of files/folders to symlink in homedir
-files="bashrc vimrc zshrc tmux.conf gitconfig profile gitignore oh-my-zsh/lib/aliases.zsh oh-my-zsh/oh-my-zsh.sh oh-my-zsh/themes/minimal.zsh-theme"    # list of files/folders to symlink in homedir
-
-##########
+files="bashrc vimrc zshrc tmux.conf gitconfig emacs profile gitignore oh-my-zsh/lib/aliases.zsh oh-my-zsh/oh-my-zsh.sh oh-my-zsh/themes/minimal.zsh-theme"    # list of files/folders to symlink in homedir
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
