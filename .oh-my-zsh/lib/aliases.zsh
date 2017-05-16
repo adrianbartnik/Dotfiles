@@ -4,7 +4,12 @@ alias po='popd'
 
 # Basic directory operations
 alias ...='cd ../..'
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias -- -='cd -'
+mk () {
+    mkdir -p -- "$1" && cd -P -- "$1" # Create directory and cd into it
+}
 
 # Super user
 alias _='sudo'
@@ -34,5 +39,8 @@ alias la='ls -lAh'
 alias afind='ack-grep -il'
 
 # OWN ALIASES
-alias inbox="vim /home/adrian/Dropbox/Apps/Notz/Inbox.txt"
-alias dp="cd /home/adrian/Dropbox/Apps/Notz/"
+alias inbox="vim /home/adrian/Dropbox/Apps/Wikis/Personal/Inbox.wiki"
+alias dp="cd /home/adrian/Dropbox/Apps/Noty/"
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
