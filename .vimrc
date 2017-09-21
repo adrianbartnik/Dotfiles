@@ -19,7 +19,7 @@ set foldnestmax=10       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 set hlsearch
-" set incsearch " Incremental search during input
+set incsearch " Immediately start search during typing
 set nomodeline
 set wildmenu " Better command-line completion
 set wildmode=longest,list,full
@@ -212,9 +212,6 @@ let g:tmuxline_preset = {
 " ----- Commentary 
 " gc
 
-" ----- vim-multiple-cursors
-" Ctrl-n
-
 " Surround.vim
 " cs"' to Change surrounding inside a text object from " to '
 " cst" changes any tag to "
@@ -223,13 +220,12 @@ let g:tmuxline_preset = {
 " yss to wrap whole line with }}
 " in visual line mode S( to wrap all lines
 
-" ----- vim-ctrl-p
-" Open multiple files at once as hidden buffers
-let g:ctrlp_open_multiple_files = 'i'
-" let g:ctrlp_working_path_mode = 'ra' - Default
-let g:ctrlp_working_path_mode = 'c'
+" ----- fzf.vim
 
-" ---- Other Functions
+set rtp+=~/.fzf
+
+:nmap <C-p> :FZF<Enter>
+:nmap <C-b> :Buffers<Enter>
 
 " ---- Folding
 
@@ -385,12 +381,17 @@ function! Rename(name, bang)
 endfunction
 
 
-" NEW PLUGIN EXAMPLE
+" VimPlug
 
 call plug#begin()
-Plug 'lervag/vimtex'
 Plug 'jreybert/vimagit'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
+
+" Vim-Gitgutter
+set updatetime=250 " Update interval
 
 " Help file
 nnoremap t <C-]> " Map follow link to t instead of Ctrl+], move back with Ctrl+t

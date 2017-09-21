@@ -118,3 +118,8 @@ sh /home/adrian/.config/base16-shell/base16-ocean.dark.sh
 
 # My own aliases
 alias inbox='vim /home/adrian/Dropbox/Apps/Notz/Inbox.txt'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/opt/anaconda3/bin:$PATH"

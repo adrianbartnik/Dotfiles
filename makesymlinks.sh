@@ -7,9 +7,14 @@
 
 # Variables
 
-dir=~/Documents/Projects/Dotfiles                             # dotfiles directory
-olddir=~/Documents/Projects/Dotfiles/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc zshrc tmux.conf gitconfig emacs profile gitignore oh-my-zsh/lib/aliases.zsh oh-my-zsh/oh-my-zsh.sh oh-my-zsh/themes/minimal.zsh-theme"    # list of files/folders to symlink in homedir
+# dotfiles directory
+dir=~/Documents/Projects/Dotfiles
+# old dotfiles backup directory
+olddir=~/Documents/Projects/Dotfiles/dotfiles_old
+# list of files/folders to symlink in homedir
+files="bashrc vimrc zshrc tmux.conf gitconfig emacs profile gitignore oh-my-zsh/lib/aliases.zsh oh-my-zsh/oh-my-zsh.sh oh-my-zsh/themes/minimal.zsh-theme config/zathura/zathurarc config/systemd/user/default.target.wants/tmux.service config/systemd/user/tmux.service"
+
+##########
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
